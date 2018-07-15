@@ -1,0 +1,127 @@
+<!--
+  Generated template for the ProfilePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="facebook">
+    <ion-title>Profile</ion-title>
+  </ion-navbar>
+</ion-header>
+    
+
+<ion-content fullscreen-padding>
+    <div text-center padding class="image">
+        <img src="assets/imgs/image.jpg" class="edit-avatar" alt="" >
+        <p text-center>{{username}}</p>
+        <div class="row">
+          <div class="col s6">
+              <button ion-button (click)="openExams()">Request Exams &nbsp;<ion-icon name="arrow-dropdown"></ion-icon></button>
+          </div>
+          <div class="col s6">
+              <div class="col s6">
+                <button ion-button outline block (click)="randomize()"><ion-icon name="md-print"></ion-icon> </button>
+              </div>
+              <div class="col s6">
+                  <button ion-button outline block (click)="randomize()"><ion-icon name="md-cloud-download"></ion-icon> </button>
+              </div>
+              
+            </div>
+        </div>
+        
+        
+      </div>
+    
+        <div>
+            <ion-segment [(ngModel)]="lesson_segment">
+              <ion-segment-button value="stats">
+                  <ion-icon ios="ios-stats" md="md-stats" item-left></ion-icon>
+                </ion-segment-button>
+                    <ion-segment-button value="dashboard">
+                        <ion-icon ios="ios-pie" md="md-pie" item-left></ion-icon>
+                      </ion-segment-button>
+                      <ion-segment-button value="badges">
+                          <ion-icon ios="ios-ribbon" md="md-ribbon"></ion-icon>
+                        </ion-segment-button>
+            </ion-segment>
+          </div>
+    
+    <div [ngSwitch]="lesson_segment">
+        <ion-list  *ngSwitchCase="'stats'">
+          <p text-center>
+            <button ion-button outline (click)="openOptions()"> {{data}} <ion-icon name="arrow-dropdown"></ion-icon></button>
+          </p>
+
+          <ion-card>
+            <div>
+                <div style="display: block">
+                  <canvas baseChart
+                          [datasets]="barChartData"
+                          [labels]="barChartLabel"
+                          [options]="barChartOptions"
+                          [legend]="barChartLegend"
+                          [chartType]="barChartType"
+                          (chartHover)="chartHovered($event)"
+                          (chartClick)="chartClicked($event)"></canvas>
+                </div>
+                
+              </div>
+         </ion-card>
+        </ion-list>
+
+
+        <ion-list *ngSwitchCase="'dashboard'">
+          <ion-card >
+            <div class="row" >
+              <div class="col s6" *ngFor = "let c of dd">
+                      <div style="display: block">
+                        <p>{{c.name}}</p>
+                        <ion-note>{{c.per}}% Complete</ion-note>
+                        <canvas baseChart 
+                        [data]="doughnutChartData"
+                        [chartType] ="doughnutChartType"
+                        (chartHover)="chartHovered($event)"
+                        (chartClick)="chartClicked($event)"></canvas>
+                      </div>
+          </div>
+        </div>
+      </ion-card>
+    </ion-list>
+
+<!-- [labels]="doughnutChartLabels" -->
+
+    <ion-list *ngSwitchCase="'badges'">
+        <ion-item>
+          <div item-left class="circle">
+            <!-- <ion-icon name="ios-medal" class="icons"></ion-icon> -->
+          </div>
+          <p>Social Studies JHS 1</p>
+          <p>Good job! 1st term completed</p>
+        </ion-item>
+        <ion-item>
+            <div item-left class="circles">
+                <!-- <ion-icon name="ios-medal" class="icons"></ion-icon> -->
+            </div>
+            <p>Social Studies JHS 1</p>
+            <p>Good job! 2nd term completed</p>
+          </ion-item>
+          <ion-item>
+              <div item-left class="bcircle">
+                  <!-- <ion-icon name="ios-medal" class="icons"></ion-icon> -->
+              </div>
+              <p>Social Studies JHS 1</p>
+              <p>Good job! 3rd term completed</p>
+            </ion-item>
+            <ion-item>
+                <div item-left class="acircles">
+                    <!-- <ion-icon name="ios-medal" class="icons"></ion-icon> -->
+                </div>
+                <p>Social Studies JHS 2</p>
+                <p>Good job! 1st term completed</p>
+              </ion-item>
+    </ion-list>
+      </div>
+          
+</ion-content>

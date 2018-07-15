@@ -1,0 +1,262 @@
+<ion-header>
+  <ion-navbar color="facebook">
+      <button ion-button menuToggle>
+          <ion-icon name="menu"></ion-icon>
+          </button>
+    <ion-title>
+    </ion-title>
+    
+    <!-- <ion-buttons end ><button ion-button><ion-icon ios="ios-contact" md="md-contact" ></ion-icon></button></ion-buttons> -->
+    <ion-buttons end (click)="openNotification()"><button ion-button><ion-icon ios="ios-notifications" md="md-notifications"></ion-icon><ion-badge color="danger">2</ion-badge></button></ion-buttons>
+    <ion-buttons end (click)="openstore()"><button ion-button><ion-icon ios="ios-cart" md="md-cart" ></ion-icon></button></ion-buttons>
+    <ion-buttons end (click)="presentPopover()" #popoverContent><button ion-button><ion-icon ios="ios-more" md="md-more" #popoverText></ion-icon></button></ion-buttons>
+  </ion-navbar>
+      
+</ion-header>
+
+<ion-content fullscreen-padding class="popover-page" (swipe)="swipeEvent($event)">
+    <ion-refresher (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content
+          refreshingSpinner="circles">
+        </ion-refresher-content>
+      </ion-refresher>
+  <div>
+  <ion-segment [(ngModel)]="lesson_segment">
+       
+        <ion-segment-button value="learning">
+            <ion-icon ios="ios-school" md="md-school"></ion-icon>
+        </ion-segment-button>
+        <ion-segment-button value="home">
+            <ion-icon ios="ios-home" md="md-home"></ion-icon>
+          </ion-segment-button>
+           <ion-segment-button value="challenge">
+            <ion-icon name="ios-flash"></ion-icon>
+          </ion-segment-button>
+      </ion-segment>
+    </div>
+    <div [ngSwitch]="lesson_segment">
+    <ion-list  *ngSwitchCase="'learning'" fullscreen-padding>
+     <ion-card >
+      <ion-grid>
+        <ion-row>
+          <ion-col class="animated rotateIn item-remove-animate" col-6 text-center *ngFor="let c of courses" data-ng-disabled="true">
+          <div class="progress-wrapper">
+              <!-- <div class="current" [ngStyle]="getOverlayStyle()">{{ c.current }}/{{ max }}</div> -->
+            <round-progress [current]="c.current" [max]="max" [stroke]="stroke" [radius]="radius" [semicircle]="semicircle" [rounded]="rounded"
+            [responsive]="responsive" [clockwise]="clockwise" [color]="gradient ? 'url(#gradient)' : color" [background]="background"
+            [duration]="duration" [animation]="animation" (click)="OpenCourse(c.name)"> 
+           </round-progress>
+          </div>
+              <p class="card-title" name = "s">{{c.name}} 
+                <!-- <ion-icon [name]="c.ic_name" [color]= "c.color"></ion-icon> -->
+              </p>  
+          </ion-col>
+          <ion-col col-6 text-center>
+            <div class="col" (click)="more(More)">
+              <p class="card-title">More...</p> 
+            </div> 
+           
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card>
+      <!-- <div class="fixed-action-btn" (click)="callpage()">
+        <a class="btn-floating waves-effect waves-light blue">
+          <i class="large material-icons"><ion-icon name="add"></ion-icon></i>
+        </a>
+      </div> -->
+   </ion-list>
+
+
+
+
+
+
+
+ <ion-list *ngSwitchCase="'challenge'" padding>
+    <ion-item-group >
+        <ion-item-divider color="blu" >Ongoing</ion-item-divider>
+         <ion-item *ngFor="let not of noRequest" (click)="play(not?.id,not?.hisName)">
+            <ion-avatar item-left>
+                <img src="assets/imgs/index.jpg" alt="Image">
+                </ion-avatar>
+           <p>{{not?.hisName}}</p>
+           <button ion-button clear color="facebook" item-right> &nbsp;&nbsp; Play</button>
+         </ion-item>
+         <ion-item *ngFor="let their of theirRequest" (click)="finishIt(their?.id,their?.hisName)">
+            <ion-avatar item-left>
+                <img src="assets/imgs/index.jpg" alt="Image">
+                </ion-avatar>
+           <p>{{their?.hisName}}</p>
+           <button ion-button color="facebook" clear (click)="SendInvitation(their?.hisName)" item-right> &nbsp;&nbsp; Accept</button>
+              </ion-item>
+              <ion-item *ngFor="let my of myRequest">
+                  <ion-avatar item-left>
+                  <img src="assets/imgs/index.jpg" alt="Image">
+                  </ion-avatar>
+                  <p>{{my?.hisName}}</p>
+                  <button ion-button color="facebook" clear item-right> &nbsp;&nbsp; Waiting</button>
+                </ion-item>
+         </ion-item-group>
+
+         <ion-item-group>
+         <ion-item-divider color="bluz" >Completed</ion-item-divider>
+         <ion-item *ngFor="let our of ourRequest">
+            <ion-avatar item-left>
+                <img src="assets/imgs/index.jpg" alt="Image">
+                </ion-avatar>
+           <p>{{our?.hisName}}</p>
+           <p item-right> 5: 1</p>
+         </ion-item>
+      </ion-item-group>
+        <div class="fixed-action-btn " (click)="openChallenge()">
+            <a class="btn-floating waves-effect waves-light blue">
+              <i class="large material-icons"><ion-icon name="add"></ion-icon></i>
+            </a>
+          </div>
+  
+  </ion-list>
+  
+
+
+
+
+
+      <ion-list *ngSwitchCase="'home'" fullscreen-padding>
+        <div [ngSwitch]= "person">
+          
+            <ion-card class="animated bounce item-remove-animate item-avatar">
+                <!-- <div *ngIf="!mycurrent" text-center>
+        
+                    <div class="preloader-wrapper small active">
+                        <div class="spinner-layer spinner-blue-only">
+                          <div class="circle-clipper left">
+                            <div class="circle"></div>
+                          </div><div class="gap-patch">
+                            <div class="circle"></div>
+                          </div><div class="circle-clipper right">
+                            <div class="circle"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div> -->
+      <ion-grid >
+        <ion-row>
+            <ion-col col-6>
+            <ion-avatar>
+                  <img class="avatar" src="assets/imgs/image.jpg">
+            </ion-avatar>
+          </ion-col>
+            <ion-col col-6 text-left>
+                <round-progress [current]="mycurrent?.score || 0" [max]="max" [stroke]="stroke" [radius]="radius" semicircle ="true" [rounded]="rounded"
+                [responsive]="responsive" [clockwise]="clockwise" [color]="gradient ? 'url(#gradient)' : color" [background]="background"
+                [duration]="duration" [animation]="animation"></round-progress>
+                <!-- <progress-bar [progress]="35" [color]="gradient ? 'url(#gradient)' : color">
+                  </progress-bar> -->
+                  <p class="award"><b>{{mycurrent?.score || 0}}</b> points</p>
+                <button small ion-button color = "facebook" small (click)="viewClassmates()">
+               See Classmates
+                </button>
+              </ion-col>
+                
+         </ion-row>
+        </ion-grid>
+      </ion-card>
+
+        <ion-list  *ngSwitchCase="'Student'">
+        <div class="row" flip>
+            <div class="col s12 m7">
+              <div class="card">
+                <div class="card-image">
+                  <img src="assets/imgs/pic.jpg">
+                  <span class="card-title">YCL qualifies for round 2 of the MTN App Challenge</span>
+                </div>
+                <div class="card-content">
+                  <p>The management of your beloved ycl app  are in the version 5 of the MTN app challenge,
+                     after an excellent presentation the ycl team got  <b>5 Yes's !</b> from the judges and have qualified
+                      for round 2 of the MTN app challenge</p>
+                </div>
+                <div class="card-action">
+                  <a href="#">View More</a>
+                </div>
+              </div>
+            </div>
+          </div>
+      <ion-card>
+       <p>Ethel just completed a challenge with Samuel</p>
+          <ion-grid>
+              <ion-row>
+              <ion-col col-4>
+                <ion-avatar item-left >
+                <img src="assets/imgs/imagelady.jpg" class="circle">
+              </ion-avatar>
+                <h6 text-center>Ethel</h6>
+              </ion-col>
+              <ion-col col-4><p text-center>5 : 1</p></ion-col>
+              <ion-col col-4>
+                <ion-avatar item-right >
+                <img src="assets/imgs/image.jpg" alt="" class="circle">
+              </ion-avatar>
+                <h6 text-center>Samuel</h6>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+          <ion-note padding>3min ago</ion-note>
+        </ion-card>
+      </ion-list>
+
+<!--Parent-->
+      <ion-list *ngSwitchCase="'Parent'">
+          <p text-center>Number of Children: {{students?.length}} </p> 
+          <ion-card >
+             <ion-list *ngFor = "let student of students">
+                 <ion-item (click)="openProfile(student.fullname)">
+                   <ion-avatar item-left>
+                     <img src="assets/imgs/index.jpg" alt="">
+                   </ion-avatar>
+                   <h3>{{student.fullname}}</h3>
+                   <ion-note>Last Seen : yesterday</ion-note>
+                   <ion-icon name="ios-arrow-forward" item-right></ion-icon>
+                 </ion-item>
+               </ion-list>
+         </ion-card>
+   
+         <div class="fixed-action-btn " (click)="AddStudents()">
+             <a class="btn-floating waves-effect waves-light blue">
+               <i class="large material-icons"><ion-icon name="add"></ion-icon></i>
+             </a>
+           </div>
+      </ion-list>
+
+<!--Teacher-->
+
+      <ion-list *ngSwitchCase="'Teacher'">
+       <p text-center>{{students?.length}} Student(s)</p> 
+       <ion-card>
+          <ion-list *ngFor = "let student of students">
+              <ion-item (click)="openProfile(student.fullname)">
+                <ion-avatar item-left>
+                  <img src="assets/imgs/index.jpg" alt="">
+                </ion-avatar>
+                <h3>{{student.fullname}}</h3>
+                <ion-note>Last Seen : yesterday</ion-note>
+                <ion-icon name="ios-arrow-forward" item-right></ion-icon>
+              </ion-item>
+            </ion-list>
+      </ion-card>
+
+      <div class="fixed-action-btn " (click)="AddStudents()">
+          <a class="btn-floating waves-effect waves-light blue">
+            <i class="large material-icons"><ion-icon name="add"></ion-icon></i>
+          </a>
+        </div>
+       </ion-list>
+       </div>
+    </ion-list>
+  
+
+        </div>
+      
+    
+   
+</ion-content>

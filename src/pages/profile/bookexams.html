@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-navbar color="facebook">
+     <ion-title>Book Exams</ion-title>
+  </ion-navbar>
+</ion-header>
+      
+<ion-content>
+  <form>
+    <p padding>{{data}}</p>  
+    <div class="row">
+      <div class="col s12">
+            <label for="it">Location</label>
+        <input placeholder="Location" type="text" id="it" class="validate">
+     </div>
+ </div>
+ <ion-item>
+  <ion-label floating>Exams Date</ion-label>
+  <ion-datetime displayFormat="MMM DD YYYY" [(ngModel)]="date" [ngModelOptions]="{standalone: true}"></ion-datetime>
+</ion-item>
+<ion-item>
+  <ion-label floating>Time</ion-label>
+  <ion-datetime displayFormat="h:mm A" pickerFormat="h mm A" [(ngModel)]="time" [ngModelOptions]="{standalone: true}"></ion-datetime>
+</ion-item>
+<div class="row">
+        <div class="col s12">
+            <label for="num">Full Name</label>
+              <input placeholder="John Doe" id="num" type="text" class="validate">
+            </div>
+          </div>
+  
+  <div class="row">
+        <form class="col s12">
+          <div class="row">
+            <div class="input-field col s12">
+              <input placeholder="0244 000000" id="num" type="number" class="validate">
+           </div>
+        </div>
+     </form>
+</div>
+<div class="row">
+        <div class="col s12">
+            <button ion-button block color = "facebook" (click)="buyNow(image)" color="primary">Book</button>
+                </div>
+        </div>
+</form>
+<img src="assets/imgs/momo.jpg" alt="MTN" class="image">
+</ion-content>

@@ -1,0 +1,60 @@
+page-profile {
+    .circle {
+        box-shadow: 0 2px 5px 0 rgba(0,0,0,.26);
+        background-color: #f1ee1c;
+        -webkit-transition: all 1s cubic-bezier(.55,0,.1,1);
+        transition: all 1s cubic-bezier(.55,0,.1,1);
+        -webkit-transform: translate3d(0,0,0);
+        transform: translate3d(0,0,0);
+        width: 50px;
+        height: 50px;
+    }
+    .circles {
+      box-shadow: 0 2px 5px 0 rgba(0,0,0,.26);
+      background-color: #92e709;
+      -webkit-transition: all 1s cubic-bezier(.55,0,.1,1);
+      transition: all 1s cubic-bezier(.55,0,.1,1);
+      -webkit-transform: translate3d(0,0,0);
+      transform: translate3d(0,0,0);
+      width: 50px;
+      height: 50px;
+  }
+
+  .bcircle {
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,.26);
+    background-color: #219c2c;
+    -webkit-transition: all 1s cubic-bezier(.55,0,.1,1);
+    transition: all 1s cubic-bezier(.55,0,.1,1);
+    -webkit-transform: translate3d(0,0,0);
+    transform: translate3d(0,0,0);
+    width: 70px;
+    height: 50px;
+    border-radius: 100%;
+  }
+    .acircles {
+      box-shadow: 0 2px 5px 0 rgba(0,0,0,.26);
+      background-color: #d87d05;
+      -webkit-transition: all 1s cubic-bezier(.55,0,.1,1);
+      transition: all 1s cubic-bezier(.55,0,.1,1);
+      -webkit-transform: translate3d(0,0,0);
+      transform: translate3d(0,0,0);
+      width: 50px;
+      height: 50px;
+    }
+.image{
+  background-color: #d2e3fa
+}
+
+      .edit-avatar {
+        border-radius: 100%;
+        height: 100px;
+        width: 100px
+      }
+    }
+
+    page-exams{
+      .image{
+        height: 130px;
+        width: 100%;
+    }
+    }

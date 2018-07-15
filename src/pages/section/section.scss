@@ -1,0 +1,45 @@
+page-section {
+    .circle{
+        background-color: #0392ca;
+        border: 1px solid #ffffff;
+        border-radius: 100px;
+        color: #ffffff;
+        margin-left: 18%;
+        height: 100px;
+        width: 100px;
+    }
+    h4{
+        text-align: center;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-size: 20px; 
+    }
+    
+   .card-title{
+       font-size: 15px !important
+   }
+
+   .card-image{
+    height: 30% !important;
+}
+
+img {
+    height: 100px;
+    opacity: 0.85;
+}
+
+    ion-buttons{
+        text-align: center;
+    }
+    ion-col div {
+        text-align: center;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-size: 30px;
+        height: auto;
+        width: 170px;
+        // background-color: #ccecf8;
+      }
+    
+      ion-grid{
+          margin-top: 5%;
+      }
+}

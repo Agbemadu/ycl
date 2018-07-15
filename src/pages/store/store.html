@@ -1,0 +1,74 @@
+<!--
+  Generated template for the StorePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="facebook">
+    <ion-title>My Store</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content fullscreen-padding #popoverContent>
+  <ion-item-group #popoverText>
+      <ion-item-divider color = "blu">Hardware</ion-item-divider>
+      <ion-grid >
+      <ion-row>
+        <ion-col *ngFor= "let image of hardware">
+            <div> 
+              <ion-card>
+              <img [src]="image.image" alt="Store Image">
+              <P>{{image.name}}</P>
+            <ion-note item-right><ion-icon ios="ios-pricetags" md="md-pricetags"></ion-icon>&nbsp;GHC 35.00</ion-note>
+             <button ion-button clear color = "facebook" (click)="buyNow(image)" color="primary" small>
+             <ion-icon ios="ios-cart" md="md-cart"></ion-icon>&nbsp; &nbsp;
+               Shop Now</button>
+          </ion-card>
+         </div>
+     </ion-col>
+      </ion-row>
+    </ion-grid>
+    </ion-item-group>
+  <ion-item-group>
+    <ion-item-divider color = "blu">Stationary</ion-item-divider>
+    <ion-grid >
+    <ion-row>
+      <ion-col *ngFor= "let image of books">
+          <div> 
+            <ion-card>
+            <img [src]="image.image" alt="Store Image">
+            <P>{{image.name}}</P>
+          <ion-note item-right><ion-icon ios="ios-pricetags" md="md-pricetags"></ion-icon>&nbsp;GHC 35.00</ion-note>
+           <button ion-button clear color = "facebook" (click)="buyNow(image)" color="primary" small>
+           <ion-icon ios="ios-cart" md="md-cart"></ion-icon>&nbsp; &nbsp;
+             Shop Now</button>
+        </ion-card>
+       </div>
+   </ion-col>
+    </ion-row>
+  </ion-grid>
+  </ion-item-group>
+  <ion-item-group>
+      <ion-item-divider color = "bluz">Others</ion-item-divider>
+      <ion-grid >
+      <ion-row>
+        <ion-col *ngFor= "let image of Stories">
+            <div> 
+              <ion-card>
+              <img [src]="image.image" alt="Store Image">
+              <P>{{image.name}}</P>
+            <ion-note item-right><ion-icon ios="ios-pricetags" md="md-pricetags"></ion-icon>&nbsp;GHC 5.00</ion-note>
+             <button ion-button clear color = "facebook" (click)="buyNow(image)" color="primary" small>
+             <ion-icon ios="ios-cart" md="md-cart"></ion-icon>&nbsp; &nbsp;
+               Shop Now</button>
+          </ion-card>
+         </div>
+     </ion-col>
+      </ion-row>
+    </ion-grid>
+    </ion-item-group>
+</ion-content>

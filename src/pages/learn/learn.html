@@ -1,0 +1,156 @@
+<!--
+  Generated template for the LearnPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="facebook">
+      <ion-buttons start right>
+          <button ion-button icon-only (click)="doMore()">
+            <ion-icon name="more"></ion-icon>
+          </button>
+        </ion-buttons>
+    <ion-title>{{title}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content fullscreen-padding >
+    <ion-refresher (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content
+          pullingIcon="arrow-dropdown"
+          pullingText="Pull to refresh"
+          refreshingSpinner="circles"
+          refreshingText="Refreshing...">
+        </ion-refresher-content>
+      </ion-refresher>
+    <div>
+        <ion-segment [(ngModel)]="lesson_segment">
+          <ion-segment-button value="learning">
+              <ion-icon ios="ios-arrow-dropright" md="md-arrow-dropright"></ion-icon>
+          </ion-segment-button>
+          <ion-segment-button value="quiz">
+              <ion-icon ios="ios-help" md="md-help"></ion-icon>
+          </ion-segment-button>
+        </ion-segment>
+      </div>
+
+<div [ngSwitch]="lesson_segment">
+    <ion-list  *ngSwitchCase="'learning'">
+  <ion-list >
+    <ion-card  class="card" >
+      <video controls="controls" preload="metadata"  width="100%" height="45%" webkit-playsinline="webkit-playsinline" class="videoPlayer">
+          <source [src]="learns?.video" type="audio/mp4" />
+          </video>
+        <ion-buttons end>
+            <button no-margin no-padding clear color="black" ion-button icon-only style="float: right" >
+            <ion-icon ios="ios-volume-up" md="md-volume-up"></ion-icon>
+          </button>
+          <button no-margin no-padding clear color="black" ion-button icon-only style="float: right" (click)="openLan()">
+            {{language}} &nbsp; <ion-icon ios="ios-arrow-dropdown" md="md-arrow-dropdown"></ion-icon>
+          </button>
+        </ion-buttons>
+        <div class="card-content">
+          <p name="english" class="flow-text">{{learns?.lesson}}</p>
+          <p name="french" class="flow-text" id="flow">{{learns?.french}}</p>
+          <div class="slide">
+              <h4>Some images on {{topic}}</h4>
+              <ion-scroll class="story" scrollX="true" >
+                <div class="story_scroll" *ngFor = "let image of images | slice : 1">
+                  <div class="story_img_bg">
+                   <img [src]="image" (click)="openit(image)" class="story_img">
+                  </div>
+                </div>
+              </ion-scroll>
+            </div>
+          </div>
+         <ion-buttons end>
+           <button ion-button (click)="takeQuiz()" color="facebook">Next</button>
+         </ion-buttons>
+        
+  
+      </ion-card>
+     </ion-list>
+    </ion-list>
+  
+    <ion-list *ngSwitchCase="'quiz'">
+      <form name ="note">
+       
+        <ion-list radio-group >
+         <ion-card>
+            <p class="card-title" padding>
+            {{learns?.question}}
+          </p>
+        <div class="card-content">
+          <ion-item *ngIf ="answer?.a">
+            <ion-label>{{answer?.a}}</ion-label>
+            <ion-radio item-left (click)="subAns(answer.a)"></ion-radio>
+          </ion-item>
+          <ion-item *ngIf ="answer?.b">
+            <ion-label>{{answer?.b}}</ion-label>
+            <ion-radio item-left (click)="subAns(answer.b)"></ion-radio>
+          </ion-item>
+          <ion-item *ngIf ="answer?.c">
+            <ion-label>{{answer?.c}}</ion-label>
+            <ion-radio item-left (click)="subAns(answer.c)"></ion-radio>
+          </ion-item>
+          <ion-item *ngIf ="answer?.d">
+            <ion-label>{{answer?.d}}</ion-label>
+            <ion-radio item-left (click)="subAns(answer.d)"></ion-radio>
+          </ion-item>
+          <ion-item *ngIf ="answer?.e">
+            <ion-label>{{answer?.e}}</ion-label>
+            <ion-radio item-left (click)="subAns(answer.e)"></ion-radio>
+          </ion-item>
+          <ion-buttons end>
+            <ion-icon ios="ios-help-circle" md="md-help-circle"></ion-icon>
+            <button ion-button clear color="facebook" (click)="help()">Help</button>
+          </ion-buttons>
+        </div>
+          <ion-buttons end>
+              <button ion-button color="facebook" (click)="check()">Submit</button>
+            </ion-buttons>
+          </ion-card>
+         <!-- <ion-card *ngIf ="answer.e">
+         <ion-item>
+          <ion-label>{{answer?.a}}</ion-label>
+          <ion-checkbox (click)="subAn(answer?.a)"></ion-checkbox>
+         </ion-item>
+         <ion-item>
+          <ion-label>{{answer?.b}}</ion-label>
+          <ion-checkbox (click)="subAn(answer?.b)"></ion-checkbox>
+         </ion-item>
+         <ion-item>
+          <ion-label>{{answer?.c}}</ion-label>
+          <ion-checkbox (click)="subAn(answer?.c)"></ion-checkbox>
+         </ion-item>
+         <ion-item>
+          <ion-label>{{answer?.d}}</ion-label>
+          <ion-checkbox (click)="subAn(answer?.d)"></ion-checkbox>
+         </ion-item>
+         <ion-item>
+          <ion-label>{{answer?.e}}</ion-label>
+          <ion-checkbox (click)="subAn(answer?.e)"></ion-checkbox>
+         </ion-item>
+         <ion-buttons end>
+            <button ion-button color="facebook" (click)="checkthem()">Submit</button>
+          </ion-buttons>
+        </ion-card> -->
+        </ion-list>
+      </form>
+      <div name="alert" class="alert">
+      <p name="correct"></p>
+    <ion-buttons end name= "right">
+      <button ion-button color="facebook" (click)="doOk()">Ok</button>
+    </ion-buttons>
+      <ion-buttons end name= "wrong">
+        <button ion-button color="facebook" (click)="tryagain()">Try Again</button>
+      </ion-buttons>
+  </div>
+ </ion-list>
+</div>
+  
+</ion-content>

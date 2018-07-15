@@ -1,0 +1,469 @@
+<!--
+  Generated template for the TopicdetailsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+    <ion-navbar color="facebook">
+        <ion-buttons start right>
+            <button ion-button icon-only (click)="doMore()">
+              <ion-icon name="more"></ion-icon>
+            </button>
+          </ion-buttons>
+      <ion-title>{{title}}</ion-title>
+    </ion-navbar>
+  
+  </ion-header>
+  
+  
+  <ion-content fullscreen-padding >
+      <div>
+          <ion-segment [(ngModel)]="lesson_segment">
+            <ion-segment-button value="1">
+                <ion-icon ios="ios-arrow-dropright" md="md-arrow-dropright"></ion-icon>
+            </ion-segment-button>
+            <ion-segment-button value="2">
+                <ion-icon ios="ios-help" md="md-help"></ion-icon>
+            </ion-segment-button>
+            <ion-segment-button value="3">
+                <ion-icon ios="ios-arrow-dropright" md="md-arrow-dropright"></ion-icon>
+            </ion-segment-button>
+            <ion-segment-button value="4">
+                <ion-icon ios="ios-help" md="md-help"></ion-icon>
+            </ion-segment-button>
+            <ion-segment-button value="5">
+                <ion-icon ios="ios-arrow-dropright" md="md-arrow-dropright"></ion-icon>
+            </ion-segment-button>
+            <ion-segment-button value="6">
+                <ion-icon ios="ios-help" md="md-help"></ion-icon>
+            </ion-segment-button>
+            <ion-segment-button value="7">
+                <ion-icon ios="ios-arrow-dropright" md="md-arrow-dropright"></ion-icon>
+            </ion-segment-button>
+            <ion-segment-button value="8">
+                <ion-icon ios="ios-help" md="md-help"></ion-icon>
+            </ion-segment-button>
+            <ion-segment-button value="9">
+                <ion-icon ios="ios-arrow-dropright" md="md-arrow-dropright"></ion-icon>
+            </ion-segment-button>
+            <ion-segment-button value="10">
+                <ion-icon ios="ios-help" md="md-help"></ion-icon>
+            </ion-segment-button>
+          </ion-segment>
+        </div>
+  
+  <div [ngSwitch]="lesson_segment">
+      <ion-list  *ngSwitchCase="'1'">
+      <ion-card  class="card">
+        <div class="row" >
+         <div class="col s6">
+            <img [src]="lang?.a" >          
+        </div>
+        <div class="col s6">
+            <img [src]="lang?.b">              
+        </div>
+      </div>
+      <div class="row" >
+        <div class="col s6">
+            <img [src]="lang?.c">            
+        </div>
+         <div class="col s6">
+             <img [src]="lang?.d">           
+        </div>
+        </div>
+        <div class="row" >
+        <div class="col s6">
+             <img [src]="lang?.e">          
+        </div>
+        <div class="col s6">
+            <img [src]="lang?.f">          
+        </div>
+      </div> 
+    <ion-buttons end>
+      <button ion-button (click)="takeQuiz()" color="facebook">Next</button>
+    </ion-buttons> 
+  </ion-card>
+</ion-list>
+    
+      <ion-list *ngSwitchCase="'2'">
+        <form name ="note">
+         
+          <ion-list radio-group >
+           <ion-card>
+              <p class="card-title" padding>
+              What is the name of the alphabet displayed below?
+            </p> 
+            <div class="quizImage" >
+             <img [src]="lang?.e">
+            </div>
+            
+          <div class="card-content">
+            <ion-item>
+              <ion-label>A</ion-label>
+              <ion-radio item-left (click)="subAns('a','e')"></ion-radio>
+            </ion-item>
+            <ion-item >
+              <ion-label>B</ion-label>
+              <ion-radio item-left (click)="subAns('b',e)"></ion-radio>
+            </ion-item>
+            <ion-item >
+              <ion-label>C</ion-label>
+              <ion-radio item-left (click)="subAns('e','c')"></ion-radio>
+            </ion-item>
+            <ion-item >
+              <ion-label>D</ion-label>
+              <ion-radio item-left (click)="subAns('e','d')"></ion-radio>
+            </ion-item>
+            <ion-item>
+              <ion-label>E</ion-label>
+              <ion-radio item-left (click)="subAns('e','e')"></ion-radio>
+            </ion-item>
+            <ion-buttons end>
+              <ion-icon ios="ios-help-circle" md="md-help-circle"></ion-icon>
+              <button ion-button clear color="facebook" (click)="help()">Help</button>
+            </ion-buttons>
+          </div>
+            <ion-buttons end>
+                <button ion-button color="facebook" (click)="check()">Submit</button>
+              </ion-buttons>
+            </ion-card>
+          </ion-list>
+        </form>
+        <div name="alert" class="alert">
+        <p name="correct"></p>
+      <ion-buttons end name= "right">
+        <button ion-button color="facebook" (click)="doOk()">Ok</button>
+      </ion-buttons>
+        <ion-buttons end name= "wrong">
+          <button ion-button color="facebook" (click)="tryagain()">Try Again</button>
+        </ion-buttons>
+    </div>
+   </ion-list>
+
+   <ion-list  *ngSwitchCase="'3'">
+      <ion-card  class="card">
+        <div class="row" >
+         <div class="col s6">
+            <img [src]="lang?.g" >          
+        </div>
+        <div class="col s6">
+            <img [src]="lang?.h">              
+        </div>
+      </div>
+      <div class="row" >
+        <div class="col s6">
+            <img [src]="lang?.i">            
+        </div>
+         <div class="col s6">
+             <img [src]="lang?.j">           
+        </div>
+        </div>
+        <div class="row" >
+        <div class="col s6">
+             <img [src]="lang?.k">          
+        </div>
+        <div class="col s6">
+            <img [src]="lang?.l">          
+        </div>
+      </div> 
+    <ion-buttons end>
+      <button ion-button (click)="takeQuiz()" color="facebook">Next</button>
+    </ion-buttons> 
+  </ion-card>
+</ion-list>
+    
+      <ion-list *ngSwitchCase="'4'">
+        <form name ="note">
+         
+          <ion-list radio-group >
+           <ion-card>
+              <p class="card-title" padding>
+              What is the name of the alphabet displayed below?
+            </p> 
+            <div class="quizImage" >
+             <img [src]="lang?.j">
+            </div>
+            
+          <div class="card-content">
+            <ion-item>
+              <ion-label>G</ion-label>
+              <ion-radio item-left (click)="subAns('g','j')"></ion-radio>
+            </ion-item>
+            <ion-item >
+              <ion-label>K</ion-label>
+              <ion-radio item-left (click)="subAns('k','j')"></ion-radio>
+            </ion-item>
+            <ion-item >
+              <ion-label>I</ion-label>
+              <ion-radio item-left (click)="subAns('j','i')"></ion-radio>
+            </ion-item>
+            <ion-item >
+              <ion-label>J</ion-label>
+              <ion-radio item-left (click)="subAns('j','j')"></ion-radio>
+            </ion-item>
+            <ion-item>
+              <ion-label>H</ion-label>
+              <ion-radio item-left (click)="subAns('h','j')"></ion-radio>
+            </ion-item>
+            <ion-buttons end>
+              <ion-icon ios="ios-help-circle" md="md-help-circle"></ion-icon>
+              <button ion-button clear color="facebook" (click)="help()">Help</button>
+            </ion-buttons>
+          </div>
+            <ion-buttons end>
+                <button ion-button color="facebook" (click)="check()">Submit</button>
+              </ion-buttons>
+            </ion-card>
+          </ion-list>
+        </form>
+        <div name="alert" class="alert">
+        <p name="correct"></p>
+      <ion-buttons end name= "right">
+        <button ion-button color="facebook" (click)="doOk()">Ok</button>
+      </ion-buttons>
+        <ion-buttons end name= "wrong">
+          <button ion-button color="facebook" (click)="tryagain()">Try Again</button>
+        </ion-buttons>
+    </div>
+   </ion-list>
+
+   <ion-list  *ngSwitchCase="'5'">
+      <ion-card  class="card">
+        <div class="row" >
+         <div class="col s6">
+            <img [src]="lang?.m" >          
+        </div>
+        <div class="col s6">
+            <img [src]="lang?.n">              
+        </div>
+      </div>
+      <div class="row" >
+        <div class="col s6">
+            <img [src]="lang?.o">            
+        </div>
+         <div class="col s6">
+             <img [src]="lang?.p">           
+        </div>
+        </div>
+        <div class="row" >
+        <div class="col s6">
+             <img [src]="lang?.q">          
+        </div>
+        <div class="col s6">
+            <img [src]="lang?.r">          
+        </div>
+      </div> 
+    <ion-buttons end>
+      <button ion-button (click)="takeQuiz()" color="facebook">Next</button>
+    </ion-buttons> 
+  </ion-card>
+</ion-list>
+    
+      <ion-list *ngSwitchCase="'6'">
+        <form name ="note">
+         
+          <ion-list radio-group >
+           <ion-card>
+              <p class="card-title" padding>
+              What is the name of the alphabet displayed below?
+            </p> 
+            <div class="quizImage" >
+             <img [src]="lang?.m">
+            </div>
+            
+          <div class="card-content">
+            <ion-item>
+              <ion-label>M</ion-label>
+              <ion-radio item-left (click)="subAns('m','m')"></ion-radio>
+            </ion-item>
+            <ion-item >
+              <ion-label>N</ion-label>
+              <ion-radio item-left (click)="subAns('n','m')"></ion-radio>
+            </ion-item>
+            <ion-item >
+              <ion-label>O</ion-label>
+              <ion-radio item-left (click)="subAns('o','m')"></ion-radio>
+            </ion-item>
+            <ion-item >
+              <ion-label>P</ion-label>
+              <ion-radio item-left (click)="subAns('p','m')"></ion-radio>
+            </ion-item>
+            <ion-item>
+              <ion-label>Q</ion-label>
+              <ion-radio item-left (click)="subAns('q','m')"></ion-radio>
+            </ion-item>
+            <ion-buttons end>
+              <ion-icon ios="ios-help-circle" md="md-help-circle"></ion-icon>
+              <button ion-button clear color="facebook" (click)="help()">Help</button>
+            </ion-buttons>
+          </div>
+            <ion-buttons end>
+                <button ion-button color="facebook" (click)="check()">Submit</button>
+              </ion-buttons>
+            </ion-card>
+          </ion-list>
+        </form>
+        <div name="alert" class="alert">
+        <p name="correct"></p>
+      <ion-buttons end name= "right">
+        <button ion-button color="facebook" (click)="doOk()">Ok</button>
+      </ion-buttons>
+        <ion-buttons end name= "wrong">
+          <button ion-button color="facebook" (click)="tryagain()">Try Again</button>
+        </ion-buttons>
+    </div>
+   </ion-list>
+
+   <ion-list  *ngSwitchCase="'7'">
+      <ion-card  class="card">
+        <div class="row" >
+         <div class="col s6">
+            <img [src]="lang?.s" >          
+        </div>
+        <div class="col s6">
+            <img [src]="lang?.t">              
+        </div>
+      </div>
+      <div class="row" >
+        <div class="col s6">
+            <img [src]="lang?.u">            
+        </div>
+         <div class="col s6">
+             <img [src]="lang?.v">           
+        </div>
+        </div>
+        <div class="row" >
+        <div class="col s6">
+             <img [src]="lang?.w">          
+        </div>
+        <div class="col s6">
+            <img [src]="lang?.x">          
+        </div>
+      </div> 
+    <ion-buttons end>
+      <button ion-button (click)="takeQuiz()" color="facebook">Next</button>
+    </ion-buttons> 
+  </ion-card>
+</ion-list>
+    
+      <ion-list *ngSwitchCase="'8'">
+        <form name ="note">
+         
+          <ion-list radio-group >
+           <ion-card>
+              <p class="card-title" padding>
+              What is the name of the alphabet displayed below?
+            </p> 
+            <div class="quizImage" >
+             <img [src]="lang?.w">
+            </div>
+            
+          <div class="card-content">
+            <ion-item>
+              <ion-label>S</ion-label>
+              <ion-radio item-left (click)="subAns('s','w')"></ion-radio>
+            </ion-item>
+            <ion-item >
+              <ion-label>X</ion-label>
+              <ion-radio item-left (click)="subAns('x','w')"></ion-radio>
+            </ion-item>
+            <ion-item >
+              <ion-label>U</ion-label>
+              <ion-radio item-left (click)="subAns('w','u')"></ion-radio>
+            </ion-item>
+            <ion-item >
+              <ion-label>V</ion-label>
+              <ion-radio item-left (click)="subAns('v','w')"></ion-radio>
+            </ion-item>
+            <ion-item>
+              <ion-label>W</ion-label>
+              <ion-radio item-left (click)="subAns('w','w')"></ion-radio>
+            </ion-item>
+            <ion-buttons end>
+              <ion-icon ios="ios-help-circle" md="md-help-circle"></ion-icon>
+              <button ion-button clear color="facebook" (click)="help()">Help</button>
+            </ion-buttons>
+          </div>
+            <ion-buttons end>
+                <button ion-button color="facebook" (click)="check()">Submit</button>
+              </ion-buttons>
+            </ion-card>
+          </ion-list>
+        </form>
+        <div name="alert" class="alert">
+        <p name="correct"></p>
+
+        <ion-buttons end name= "wrong">
+          <button ion-button color="facebook" (click)="tryagain()">Try Again</button>
+        </ion-buttons>
+    </div>
+   </ion-list>
+
+   <ion-list  *ngSwitchCase="'9'">
+      <ion-card  class="card">
+        <div class="row" >
+         <div class="col s6">
+            <img [src]="lang?.y" >          
+        </div>
+        <div class="col s6">
+            <img [src]="lang?.z">              
+        </div>
+      </div>
+    <ion-buttons end>
+      <button ion-button (click)="takeQuiz()" color="facebook">Next</button>
+    </ion-buttons> 
+  </ion-card>
+</ion-list>
+    
+      <ion-list *ngSwitchCase="'10'">
+        <form name ="note">
+         
+          <ion-list radio-group >
+           <ion-card>
+              <p class="card-title" padding>
+              What alphabet is displayed below?
+            </p> 
+            <div class="quizImage" >
+             <img [src]="lang?.y">
+            </div>
+            
+          <div class="card-content">
+            <ion-item >
+              <ion-label>W</ion-label>
+              <ion-radio item-left (click)="subAns('w','y')"></ion-radio>
+            </ion-item>
+            <ion-item >
+              <ion-label>Z</ion-label>
+              <ion-radio item-left (click)="subAns('z','y')"></ion-radio>
+            </ion-item>
+            <ion-item >
+              <ion-label>Y</ion-label>
+              <ion-radio item-left (click)="subAns('y','y')"></ion-radio>
+            </ion-item>
+            <ion-buttons end>
+              <ion-icon ios="ios-help-circle" md="md-help-circle"></ion-icon>
+              <button ion-button clear color="facebook" (click)="help()">Help</button>
+            </ion-buttons>
+          </div>
+            <ion-buttons end>
+                <button ion-button color="facebook" (click)="check()">Submit</button>
+              </ion-buttons>
+            </ion-card>
+          </ion-list>
+        </form>
+        <div name="alert" class="alert">
+        <p name="correct"></p>
+      <ion-buttons end name= "right">
+        <button ion-button color="facebook" (click)="doOk()">Ok</button>
+      </ion-buttons>
+        <ion-buttons end name= "wrong">
+          <button ion-button color="facebook" (click)="tryagain()">Try Again</button>
+        </ion-buttons>
+    </div>
+   </ion-list>
+  </div>
+    
+  </ion-content>
+  

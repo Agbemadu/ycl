@@ -1,0 +1,42 @@
+
+<ion-menu [content]="content" >
+  <ion-header>
+    <ion-navbar color="facebook">
+      <ion-title>YCL</ion-title>
+    </ion-navbar>
+  </ion-header>
+  
+    <ion-content class="outer-content">
+      <ion-card padding>
+        <div id='menu_cover'style="background-image: url('assets/imgs/sidel.jpeg');">
+        <ion-avatar >
+            <!-- <img [src]="currentUser?.profileImage" class="avatar" alt="" *ngIf="currentUser?.profileImage"> -->
+          <img src="assets/imgs/icon.png" class="avatar" alt="">
+        </ion-avatar>
+        <p id = "p">{{currentUser?.name}}</p>
+        <p id = "p">{{currentUser?.email}}</p>
+        </div>
+  <ion-list id="churchPages" name="churchPages">
+    <button menuClose ion-item *ngFor="let t of churchPages" (click)="openPage(t)">
+      <ion-icon item-start [name]="t.icon"></ion-icon>
+      {{t.title}}
+    </button>
+  </ion-list>
+  <ion-list id="userPages" name="userPages">
+  <button menuClose ion-item *ngFor="let p of userPages" (click)="openPage(p)">
+    <ion-icon item-start [name]="p.icon" ></ion-icon>
+    {{p.title}}
+  </button>
+  </ion-list>
+  <ion-list>
+    <button menuClose ion-item (click)="testfunction()">
+    <ion-icon item-start name="ios-log-out-outline"></ion-icon>
+    Logout
+  </button>
+  </ion-list>
+</ion-card>
+  </ion-content>
+  </ion-menu>
+  
+  
+  <ion-nav [root]="rootPage" #content swipeBackEnabled="false" main></ion-nav>

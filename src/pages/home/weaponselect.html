@@ -1,0 +1,11 @@
+
+  <ion-list >
+    <ion-list-header>Choose Weapon</ion-list-header>
+    <div *ngFor ="let cos of courses" >
+      <ion-item (click)="openNext(cos.name)">
+      <ion-icon [name]="cos.ic_name" item-left [color]="cos.color"></ion-icon>
+      <h2>{{cos.name}}</h2>
+      </ion-item>
+    </div>
+    
+  </ion-list>

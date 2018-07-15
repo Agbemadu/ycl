@@ -1,0 +1,125 @@
+
+<ion-header>
+
+  <ion-navbar color="facebook">
+    <ion-title>{{item}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content fullscreen-padding [ngSwitch]="page">
+<ion-card padding>
+   <ion-item>
+            <ion-label>
+               Choose subject
+              </ion-label>
+        <ion-select >
+        <ion-option *ngFor="let c of pageItems" [value]="c.name">{{c.name}}</ion-option>
+       </ion-select>
+        </ion-item>
+</ion-card>
+
+  <div *ngSwitchCase="'MCQ'">
+    <ion-card padding>
+       <div class="card-title">Question</div>
+      <ion-item>
+        <ion-input type = "text" [(ngModel)]="question"></ion-input>
+      </ion-item>
+        <hr />
+      <div class="card-title">Answers</div>
+      <small padding>Enter at least two options and check the box(es) for the correct one(c).
+        Each question can have one or multiple correct answers
+      </small>
+
+      <ion-item>
+        <ion-label floating>Option 1</ion-label>
+        <ion-input type = "text" [(ngModel)]="opt1"></ion-input>
+        <!-- <ion-checkbox checked = "false"></ion-checkbox> -->
+      </ion-item>
+      <ion-item>
+        <ion-label floating>Option 2</ion-label>
+        <ion-input type = "text" [(ngModel)]="opt2"></ion-input>
+        <!-- <ion-checkbox ></ion-checkbox> -->
+      </ion-item>
+      <ion-item>
+          <ion-label floating>Option 3</ion-label>
+        <ion-input type = "text" [(ngModel)]="opt3"></ion-input>
+        <!-- <ion-checkbox ></ion-checkbox> -->
+      </ion-item>
+      <ion-item>
+          <ion-label floating>Option 4</ion-label>
+        <ion-input type = "text" [(ngModel)]="opt4"></ion-input>
+        <!-- <ion-checkbox ></ion-checkbox> -->
+      </ion-item>
+
+      <button ion-button (click)="previewMCQs()" color="yello">Preview</button> 
+    </ion-card>
+  </div>
+    
+  <div *ngSwitchCase="'SA'">
+    <ion-card padding>
+      <div class="card-title">Question</div>
+      <ion-item>
+        <ion-input type = "text" [(ngModel)]="question"></ion-input>
+      </ion-item>
+        <hr />
+
+        <div class="card-title">Answer</div>
+        <ion-item>
+          <ion-input type = "text" [(ngModel)]="opt1" placeholder="Type in correct answer here"></ion-input>
+        </ion-item>
+      <button ion-button (click)="previewSA()" color="yello">Preview</button> 
+    </ion-card>
+  </div>
+
+  <div *ngSwitchCase="'FILIN'">
+    <ion-card padding>
+      <div class="card-title">Question</div>
+      <ion-item>
+        <ion-input type = "text" [(ngModel)]="question"></ion-input>
+      </ion-item>
+        <hr />
+
+      <button ion-button  color="yello">Preview</button> 
+      </ion-card>
+    
+  </div>
+
+
+  <div *ngSwitchCase="'PREVIEWMCQs'">
+    <ion-card padding>
+      <div class="card-title">{{question}}</div>
+        <hr />
+        <ion-item>
+          <ion-label>{{opt1}}</ion-label>
+          <ion-checkbox></ion-checkbox>
+         </ion-item>
+         <ion-item>
+          <ion-label>{{opt2}</ion-label>
+          <ion-checkbox></ion-checkbox>
+         </ion-item>
+         <ion-item>
+          <ion-label>{{opt3}}</ion-label>
+          <ion-checkbox></ion-checkbox>
+         </ion-item>
+         <ion-item>
+          <ion-label>{{opt4}}</ion-label>
+          <ion-checkbox></ion-checkbox>
+         </ion-item>
+      </ion-card>
+    
+  </div>
+
+  <div *ngSwitchCase="'PREVIEWSAs'">
+    <ion-card padding>
+      <div class="card-title">{{question}}</div>
+        <hr />
+      <p>{{opt1}}</p>
+        
+      </ion-card>
+    
+  </div>
+
+ <p padding><button ion-button full  color="facebook">Submit</button> </p> 
+</ion-content>

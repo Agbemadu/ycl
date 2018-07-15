@@ -1,0 +1,81 @@
+<ion-header>
+
+        <ion-navbar color="facebook">
+          <ion-title>Complete Details</ion-title>
+        </ion-navbar>
+      
+      </ion-header>
+      
+<ion-content>
+    <img [src]="name.image" alt="item Image" class="image">
+    <p padding>{{name.name}}</p>
+    <!-- <div class="row">
+            <div class="col s12">
+                <div class="row">
+                    <div class="col s6">
+                
+                </div>
+            </div>
+            <div class="row">
+                
+                        <div class="col s6">
+                    <button ion-button block color = "facebook" (click)="buyNow()" color="primary">-</button>
+                            </div>
+                        <div class="col s6">
+                    <button ion-button block color = "facebook" (click)="buyNow()" color="primary">+</button>
+                        </div>
+                
+        </div>
+           </div>
+       </div>   -->
+       
+       <div class="row">
+          <div class="col s6">
+              <label for="m">Quantity</label>
+                <input placeholder="1" id="m" type="number" class="validate">
+          </div>
+          <div class="col s6">
+              <div class="col s6">
+                <button ion-button outline block (click)="add()"><ion-icon name="md-add"></ion-icon> </button>
+              </div>
+              <div class="col s6">
+                  <button ion-button outline block (click)="sub()"><ion-icon name="md-remove"></ion-icon> </button>
+              </div>
+              
+            </div>
+        </div>
+    <div class="row">
+      <div class="col s12">
+            <label for="it">Location</label>
+        <input placeholder="Location" type="text" id="it" class="validate">
+     </div>
+ </div>
+
+<div class="row">
+        <div class="col s12">
+            <label for="num">Full Name</label>
+              <input placeholder="John Doe" id="num" type="text" class="validate">
+            </div>
+          </div>
+   <div class="row">
+        <form class="col s12">
+          <div class="row">
+            <div class="input-field col s12">
+              <input placeholder="0244 000000" id="num" type="number" class="validate">
+           </div>
+        </div>
+     </form>
+</div>
+<div class="row">
+        <div class="col s12">
+                <div class="col s6">
+            <button ion-button clear block color = "facebook" (click)="buyNow(image)" color="primary">Save to Cart</button>
+                    </div>
+                <div class="col s6">
+            <button ion-button block color = "facebook" (click)="buyNow(image)" color="primary">Buy</button>
+                </div>
+        </div>
+</div>
+
+<img src="assets/imgs/momo.jpg" alt="MTN" class="image">
+</ion-content>

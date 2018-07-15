@@ -1,0 +1,53 @@
+<!--
+  Generated template for the LoginPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<!--
+  Generated template for the LoginPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="facebook">
+    <ion-title>Login</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+
+<ion-content fullscreen-padding>
+  <ion-card padding>
+    <form  [formGroup]="userForm">
+        <ion-card-title  class="card-title" text-center>Login into Your Account...</ion-card-title>
+    <ion-card-content>
+    <div class="row">
+    <div class="input-field col s12">
+    <i class="material-icons prefix"><ion-icon item-left name="md-contact"></ion-icon></i>
+    <label for="icon_eprefix">Email</label>
+    <input  id="icon_eprefix" type = "email" formControlName="email" [(ngModel)]="email"  [class.invalid]="!userForm.controls.email.valid && blur">
+    </div>
+  </div> 
+    <p class="error-message" *ngIf="!userForm.controls.email.valid && userForm.controls.email.dirty">Please enter a valid email address.</p>
+    
+    
+    <div class="row">
+    <div class="input-field col s12">
+    <i class="material-icons prefix"><ion-icon item-left name="md-unlock"></ion-icon></i>
+    <label for="icon_prefix"> Password</label>
+    <input  id="icon_prefix"  type="password"  formControlName="password" [(ngModel)]="password"  [class.invalid]="!userForm.controls.password.valid && blur">
+    </div>
+    <p class="error-message" *ngIf="!userForm.controls.password.valid && userForm.controls.password.dirty">Please password must be more than 8 characters</p>
+  </div>
+  </ion-card-content>
+    <ion-buttons end>
+        <button ion-button [disabled]="!userForm.valid" (click)="loginUser()" type="submit" clear>Login</button>
+      </ion-buttons>
+  </form>
+</ion-card>
+</ion-content>
+

@@ -1,0 +1,124 @@
+<!--
+  Generated template for the CompleteprofilePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="facebook">
+    <ion-title>Profile</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content fullscreen-padding>
+
+<ion-card padding>
+    <form [formGroup]="signupForm">
+     <ion-card-title  class="card-title" text-center>Create an Account</ion-card-title>
+       
+          <div name="firsts" class="firsts">
+            <ion-card-content>
+              <ion-list>
+                  <ion-item>
+                    <ion-label>Country</ion-label>
+                    <ion-select #newSelect [(ngModel)]="country" formControlName="country"   interface="action-sheet" (change)="onChange(country)">
+                      <ion-option value="Ghana">Ghana</ion-option>
+                      <ion-option value="Nigeria">Nigeria</ion-option>
+                      <ion-option value="Togo">Togo</ion-option>
+                    </ion-select>
+                  </ion-item>
+                </ion-list>
+              <div class="row">
+                  <div class="input-field col s12">
+                  <i class="material-icons prefix"><ion-icon item-left name="md-contact"></ion-icon></i>
+                   <input  id="fullname" type="text" placeholder="John Doe"  required formControlName="fullname" [(ngModel)]="fullname">
+                  </div>
+                </div>
+                <div class="row" name ="school">
+                    <div class="input-field col s12">
+                    <i class="material-icons prefix"><ion-icon item-left name="md-school"></ion-icon></i>
+                <input  id="school" type="text" placeholder="MySchool International"  required formControlName="school" [(ngModel)]="school">
+               </div>
+          </div>
+            <ion-grid>
+                <ion-row>
+                        <div class="input-field col s6">
+                      <input type="number" placeholder="1" id="age" formControlName="age">
+                        </div>
+                    <div class="input-field col s6">
+                      <ion-item>
+                       <ion-label floating>Gender</ion-label>
+                       <ion-select #newSelect [(ngModel)]="gender" formControlName="gender"   interface="action-sheet" (change)="onChange(gender)">
+                        <ion-option value="Male">Male</ion-option>
+                        <ion-option value="Female">Female</ion-option>
+                      </ion-select>
+                    </ion-item>
+                    </div>
+                </ion-row>
+              </ion-grid>
+              <ion-list>
+                  <div class="input-field col s12">
+                      <label for="type">Type</label>
+                     <input type="text" id="type" [(ngModel)]="type" formControlName="type">
+                      </div>
+                  <!-- <ion-item>
+                      <ion-label>I am a</ion-label>
+                      <ion-select #newSelect  formControlName="type"   interface="action-sheet" (change)="onChange(type)">
+                        <ion-option value="Student">Student</ion-option>
+                        <ion-option value="Teacher">Teacher</ion-option>
+                        <ion-option value="Parent">Parent</ion-option>
+                      </ion-select>
+                    </ion-item> -->
+               
+                 <ion-item  name="exams">
+                  <ion-label>Exams Type</ion-label>
+                  <ion-select #newSelect [(ngModel)]="exams" (change)="onChange(exams)" formControlName="exams"   interface="action-sheet">
+                    <ion-option value="BECE">BECE</ion-option>
+                    <ion-option value="WASSCE">WASSCE</ion-option>
+                  </ion-select>
+                </ion-item>
+              </ion-list>
+            </ion-card-content>
+            <ion-buttons end>
+                <button ion-button (click)="doNexts()" type="submit" clear>Next</button>
+              </ion-buttons>
+            </div>
+        
+            <div name="seconds" class="seconds">
+                <ion-card-content>
+                <div class="row">
+                    <div class="input-field col s12">
+                    <i class="material-icons prefix"><ion-icon item-left name="md-mail"></ion-icon></i>
+                  <input  id="email" type="email" placeholder="johndoe@example.com" required formControlName="email" [(ngModel)]="email"  [class.invalid]="!signupForm.controls.email.valid && blur">
+                    </div>
+                  </div>
+                  <p class="error-message" *ngIf="!signupForm.controls.email.valid && signupForm.controls.email.dirty">Please enter a valid email address.</p>
+                  
+                  <div class="row">
+                      <div class="input-field col s12">
+                      <i class="material-icons prefix"><ion-icon item-left name="md-lock"></ion-icon></i>
+                  <input  id="password" type="password" placeholder="********" required formControlName="password" [(ngModel)]="password"  [class.invalid]="!signupForm.controls.password.valid && blur">
+                      </div>
+      
+                  <p class="error-message" *ngIf="!signupForm.controls.password.valid && signupForm.controls.password.dirty">Please password must be more than 8 characters</p>
+                 </div>
+        
+                 <div class="row">
+                    <div class="input-field col s12">
+                    <i class="material-icons prefix"><ion-icon item-left name="md-lock"></ion-icon></i>
+                      <input  id="repassword" type="password" placeholder="********"  required formControlName="repassword" [(ngModel)]="repassword"  [class.invalid]="!signupForm.controls.repassword.valid && blur">
+                    </div>
+                      <p class="error-message" *ngIf="!signupForm.controls.repassword.valid && signupForm.controls.repassword.dirty">Please password must be more than 8 characters</p>
+                  </div>
+               </ion-card-content>
+                     <ion-buttons end><button ion-button (click)="doPrev()" type="submit" clear><ion-icon name="ios-undo"></ion-icon>&nbsp;&nbsp; Previous</button>
+                      <button ion-button (click)="  signupChurchAcount()" type="submit" clear>Submit</button>
+                    </ion-buttons>
+                  </div>
+                
+                
+        </form>
+      
+  </ion-card>
+</ion-content>

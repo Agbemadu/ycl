@@ -1,0 +1,97 @@
+<!--
+  Generated template for the ChallangePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="facebook">
+    <ion-title>{{title}} challenge</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content fullscreen-padding>
+
+<div name="compare">
+  <ion-grid>
+    <ion-row>
+    <ion-col col-5>
+      <ion-avatar>
+      <img src="assets/imgs/image.jpg" alt="">
+    </ion-avatar>
+      <h6 center>You</h6>
+    </ion-col>
+    <ion-col col-2><h1>VS</h1></ion-col>
+    <ion-col col-5>
+      <ion-avatar>
+      <img src="assets/imgs/imagelady.jpg" alt="">
+    </ion-avatar>
+      <h6 center>{{name}}</h6>
+    </ion-col>
+  </ion-row>
+        <p text-center name="before">WINNER GETS</p>
+        <div name="after" class="after">
+          <p text-center >{{counts}} : 0</p>
+          <p text-center>Wait for Opponent</p>
+        </div>
+        <button ion-button block outline color="secondary">10 XP</button>
+  </ion-grid>
+</div>
+
+<div name="challangepage" class="challangepage">
+  <ion-item class="no-bottom-border item">
+  <p text-center class="timer-button timer-text">{{timer?.displayTime}}</p>
+  <ion-grid>
+      <ion-row>
+      <ion-col col-5>
+        <ion-avatar item-left>
+        <img src="assets/imgs/image.jpg" alt="">
+      </ion-avatar>
+        <h6>You</h6>
+      </ion-col>
+      <ion-col col-2><p>{{counts}} : 0</p></ion-col>
+      <ion-col col-5>
+        <ion-avatar item-right>
+        <img src="assets/imgs/imagelady.jpg" alt="">
+      </ion-avatar>
+        <h6 center>{{name}}</h6>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  </ion-item>
+
+   <ion-card >
+   <p padding class="card-title">{{question}}</p>
+      <ion-list radio-group >
+    <ion-item >
+      <ion-label>{{answers?.a}}</ion-label>
+      <ion-radio item-left (click)="subAns(answers?.a)"></ion-radio>
+    </ion-item>
+    <ion-item >
+      <ion-label>{{answers?.b}}</ion-label>
+      <ion-radio item-left (click)="subAns(answers?.b)"></ion-radio>
+    </ion-item>
+    <ion-item *ngIf ="answers?.c">
+      <ion-label>{{answers?.c}}</ion-label>
+      <ion-radio item-left (click)="subAns(answers?.c)"></ion-radio>
+    </ion-item>
+    <ion-item *ngIf ="answers?.d">
+      <ion-label>{{answers?.d}}</ion-label>
+      <ion-radio item-left (click)="subAns(answers?.d)"></ion-radio>
+    </ion-item>
+    <ion-buttons end>
+      <button ion-button color="facebook" (click)="check()">Submit</button>
+    </ion-buttons>
+    </ion-list>
+  </ion-card>
+   
+  </div>
+
+
+  <div name="footer" padding>
+    <button ion-button block color="facebook" (click)="startTimer()">START</button>
+</div>
+</ion-content>

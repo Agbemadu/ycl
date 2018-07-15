@@ -1,0 +1,104 @@
+<ion-header>
+
+    <ion-navbar color="facebook">
+      <ion-buttons start left>
+        <button ion-button icon-only (click)="dismiss()">
+          <ion-icon name="close"></ion-icon>
+        </button>
+      </ion-buttons>
+      <ion-title>Edit Profile</ion-title>
+  
+      <ion-buttons end>
+        <button ion-button icon-only (click)="updateProfile()">
+          <ion-icon name="checkmark" color="primary"></ion-icon>
+        </button>
+      </ion-buttons>
+    </ion-navbar>
+  
+  </ion-header>
+  
+  <ion-content padding>
+  
+    <!-- Profile picture -->
+    <div text-center>
+      <img [src]="user_data.profile_img" class="edit-avatar" alt="" *ngIf="user_data.profile_img">
+      <img src="assets/imgs/index.jpg" class="edit-avatar" alt="" *ngIf="!user_data.profile_img">
+      <p class="change-text">Change Photo</p>
+    </div>
+  
+     <!--Form-->
+    <ion-item>
+      <ion-label> 
+        <ion-icon name="clipboard" color="gray"></ion-icon>
+      </ion-label>
+      <ion-input type="text" [(ngModel)]="user_data.school"></ion-input>
+    </ion-item>
+  
+    <ion-item>
+      <ion-label> 
+        <ion-icon name="person" color="gray"></ion-icon>
+      </ion-label>
+      <ion-input type="text" [(ngModel)]="user_data.fullname"></ion-input>
+    </ion-item>
+  
+    <ion-item>
+      <ion-label> 
+        <ion-icon name="globe" color="gray"></ion-icon>
+      </ion-label>
+      <ion-input type="text" [(ngModel)]="user_data.country"></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-label> 
+            <ion-icon name="school" color="gray"></ion-icon>
+          </ion-label>
+        <ion-select class="custom-select" [(ngModel)]="user_data.type" interface = "action-sheet" (change)="onChange(type)">
+            <ion-option value="BECE">BECE</ion-option>
+            <ion-option value="WASSCE">WASSCE</ion-option>
+            <ion-option value="none">Not Specified</ion-option>
+          </ion-select>
+      </ion-item>
+    <ion-item>
+      <ion-label>
+        <ion-icon name="quote" color="gray"></ion-icon>
+      </ion-label>
+      <ion-textarea placeholder="" [(ngModel)]="user_data.description"></ion-textarea>
+    </ion-item>
+  
+    <!-- Private information form -->
+    <div margin-top padding-top>
+      <h4 no-margin no-padding class="info-text">Information</h4>
+      <hr class="custom-hr" color="gray">
+    </div>
+    <ion-item>
+        <ion-label> 
+            <ion-icon ios="ios-arrow-dropright" md="md-arrow-dropright" color="gray"></ion-icon>
+        </ion-label>
+        <ion-input type="text" [(ngModel)]="user_data.age"></ion-input>
+      </ion-item>
+    <ion-item>
+      <ion-label> 
+        <ion-icon name="mail" color="gray"></ion-icon>
+      </ion-label>
+      <ion-input type="text" [(ngModel)]="user_data.email"></ion-input>
+    </ion-item>
+  
+    <ion-item>
+      <ion-label> 
+        <ion-icon name="phone-portrait" color="gray"></ion-icon>
+      </ion-label>
+      <ion-input type="text" [(ngModel)]="user_data.phone" placeholder="+233 2456..."></ion-input>
+    </ion-item>
+  
+    <ion-item>
+      <ion-label>
+        <ion-icon name="transgender" color="gray"></ion-icon>
+      </ion-label>
+      <ion-select class="custom-select" [(ngModel)]="user_data.gender" interface = "action-sheet" (change)="onChange(gender)">
+        <ion-option value="male">Male</ion-option>
+        <ion-option value="female">Female</ion-option>
+        <ion-option value="none">Not Specified</ion-option>
+      </ion-select>
+    </ion-item>
+ 
+  </ion-content>
+  

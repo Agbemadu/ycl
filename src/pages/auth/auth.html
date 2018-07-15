@@ -1,0 +1,49 @@
+<!--
+  Generated template for the AuthPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="facebook">
+    <ion-title>Sign Up</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <div padding>
+		<!-- <h5>Sign Up with...</h5> -->
+  		<!--	<button ion-button type="submit" block color="danger">
+  				<ion-icon ios="logo-google" md="logo-google"></ion-icon>
+  				  &nbsp; &nbsp;  Sign Up with Gmail</button>
+  		</div>
+  		<div padding>
+  			<button ion-button type="submit" block color="primary">
+  				<ion-icon ios="logo-facebook" md="logo-facebook"></ion-icon>
+  				  &nbsp; &nbsp;  Sign Up with Facebook</button>
+  		</div>-->
+      <div padding>
+		<button ion-button type="submit" outline block color="facebook" (click)="Signup()">
+			<span><ion-icon ios="ios-create" md="md-create"></ion-icon></span>		
+				  &nbsp; &nbsp;  Create Account</button>
+		</div>
+
+		<!--<div padding>
+				<button ion-button type="submit" outline block color="dark">
+						<ion-icon ios="ios-phone-portrait" md="md-phone-portrait"></ion-icon>
+						&nbsp; &nbsp;  Phone Number</button>
+			</div>-->
+
+
+		<div padding>
+			<p>Already having an account?</p>
+			<button ion-button type="submit" clear block color="primary" (click)="Login()">
+				Login &nbsp; &nbsp;<ion-icon ios="ios-log-in" md="md-log-in"></ion-icon>
+				    </button>
+		</div>
+	</div>
+</ion-content>

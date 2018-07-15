@@ -1,0 +1,163 @@
+<!--
+  Generated template for the SectionPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar color="facebook">
+    <ion-title>{{title}}</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content fullscreen-padding>
+  <div *ngIf = "! topics" text-center>
+      <div class="preloader-wrapper small active">
+          <div class="spinner-layer spinner-blue-only">
+            <div class="circle-clipper left">
+              <div class="circle"></div>
+            </div><div class="gap-patch">
+              <div class="circle"></div>
+            </div><div class="circle-clipper right">
+              <div class="circle"></div>
+            </div>
+          </div>
+        </div>
+    </div>
+
+    <div class="row" *ngIf = "topics?.a">
+    <div class="col s6">
+    <div class="card">
+                  <div class="card-image" (click)="openTopic(topics.a)">
+                    <img src="assets/imgs/bgg.jpg">
+                    <span class="card-title">{{topics?.a}}</span>
+                    <a class="btn-floating halfway-fab waves-effect waves-light blue"><i class="material-icons"><ion-icon name="arrow-round-forward"></ion-icon></i></a>
+                  </div>
+                  <div class="card-content">
+                      <button ion-button outline block (click)="startApp()">Take Short Cut</button>
+                  </div>
+                </div>
+              </div>
+              <div class="col s6">
+                <div class="card">
+                    <div class="card-image" (click)="openTopic(topics.b)">
+                      <img src="assets/imgs/bgg.jpg">
+                      <span class="card-title">{{topics?.b}}</span>
+                      <a class="btn-floating halfway-fab waves-effect waves-light blue"><i class="material-icons"><ion-icon name="md-lock"></ion-icon></i></a>
+                    </div>
+                    <div class="card-content">
+                        <button ion-button outline block (click)="startApp()">Take Short Cut</button>
+                    </div>
+                  </div>
+              </div>
+            </div>
+
+            <div class="row" >
+                <div class="col s6" *ngIf = "topics?.c">
+                <div class="card">
+                              <div class="card-image" (click)="openTopic(topics.c)">
+                                <img src="assets/imgs/bgg.jpg">
+                                <span class="card-title">{{topics?.c}}</span>
+                                <a class="btn-floating halfway-fab waves-effect waves-light blue"><i class="material-icons"><ion-icon name="md-lock"></ion-icon></i></a>
+                              </div>
+                              <div class="card-content">
+                                  <button ion-button outline block (click)="startApp()">Take Short Cut</button>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col s6"  *ngIf = "topics?.d">
+                            <div class="card">
+                                <div class="card-image" (click)="openTopic(topics.d)">
+                                  <img src="assets/imgs/bgg.jpg">
+                                  <span class="card-title">{{topics?.d}}</span>
+                                  <a class="btn-floating halfway-fab waves-effect waves-light blue"><i class="material-icons"><ion-icon name="md-lock"></ion-icon></i></a>
+                                </div>
+                                <div class="card-content">
+                                    <button ion-button outline block (click)="startApp()">Take Short Cut</button>
+                                </div>
+                              </div>
+                          </div>
+                        </div>
+
+                        <div class="row" >
+                            <div class="col s6" *ngIf = "topics?.e">
+                            <div class="card">
+                                          <div class="card-image" (click)="openTopic(topics.e)">
+                                            <img src="assets/imgs/bgg.jpg">
+                                            <span class="card-title">{{topics?.e}}</span>
+                                            <a class="btn-floating halfway-fab waves-effect waves-light blue"><i class="material-icons"><ion-icon name="md-lock"></ion-icon></i></a>
+                                          </div>
+                                          <div class="card-content">
+                                              <button ion-button outline block (click)="startApp()">Take Short Cut</button>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div class="col s6"  *ngIf = "topics?.f">
+                                        <div class="card">
+                                            <div class="card-image" (click)="openTopic(topics.f)">
+                                              <img src="assets/imgs/bgg.jpg">
+                                              <span class="card-title">{{topics?.f}}</span>
+                                              <a class="btn-floating halfway-fab waves-effect waves-light blue"><i class="material-icons"><ion-icon name="md-lock"></ion-icon></i></a>
+                                            </div>
+                                            <div class="card-content">
+                                                <button ion-button outline block (click)="startApp()">Take Short Cut</button>
+                                            </div>
+                                          </div>
+                                      </div>
+                                    </div>
+            
+
+                                    <div class="row" >
+                                        <div class="col s6" *ngIf = "topics?.g">
+                                        <div class="card">
+                                                      <div class="card-image" (click)="openTopic(topics.g)">
+                                                        <img src="assets/imgs/bgg.jpg">
+                                                        <span class="card-title">{{topics?.g}}</span>
+                                                        <a class="btn-floating halfway-fab waves-effect waves-light blue"><i class="material-icons"><ion-icon name="md-lock"></ion-icon></i></a>
+                                                      </div>
+                                                      <div class="card-content">
+                                                          <button ion-button outline block (click)="startApp()">Take Short Cut</button>
+                                                      </div>
+                                                    </div>
+                                                  </div>
+                                                  <div class="col s6"  *ngIf = "topics?.h">
+                                                    <div class="card">
+                                                        <div class="card-image" (click)="openTopic(topics.h)">
+                                                          <img src="assets/imgs/bgg.jpg">
+                                                          <span class="card-title">{{topics?.h}}</span>
+                                                          <a class="btn-floating halfway-fab waves-effect waves-light blue"><i class="material-icons"><ion-icon name="md-lock"></ion-icon></i></a>
+                                                        </div>
+                                                        <div class="card-content">
+                                                            <button ion-button outline block (click)="startApp()">Take Short Cut</button>
+                                                        </div>
+                                                      </div>
+                                                  </div>
+                                                </div>
+                        
+                                                <div class="row" >
+                                                    <div class="col s6" *ngIf = "topics?.i">
+                                                    <div class="card">
+                                                                  <div class="card-image" (click)="openTopic(topics.i)">
+                                                                    <img src="assets/imgs/bgg.jpg">
+                                                                    <span class="card-title">{{topics?.i}}</span>
+                                                                    <a class="btn-floating halfway-fab waves-effect waves-light blue"><i class="material-icons"><ion-icon name="md-lock"></ion-icon></i></a>
+                                                                  </div>
+                                                                  <div class="card-content">
+                                                                      <button ion-button outline block (click)="startApp()">Take Short Cut</button>
+                                                                  </div>
+                                                                </div>
+                                                              </div>
+                                                              <div class="col s6"  *ngIf = "topics?.j">
+                                                                <div class="card">
+                                                                    <div class="card-image" (click)="openTopic(topics.j)">
+                                                                      <img src="assets/imgs/bgg.jpg">
+                                                                      <span class="card-title">{{topics?.j}}</span>
+                                                                      <a class="btn-floating halfway-fab waves-effect waves-light blue"><i class="material-icons"><ion-icon name="md-lock"></ion-icon></i></a>
+                                                                    </div>
+                                                                    <div class="card-content">
+                                                                        <button ion-button outline block (click)="startApp()">Take Short Cut</button>
+                                                                    </div>
+                                                                  </div>
+     </div>
+  </div>
+ 
+</ion-content>
